@@ -3,20 +3,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --primary: #0ea5e9;
-  --primary-glow: rgba(14, 165, 233, 0.2);
-  --secondary: #6366f1;
-  --accent: #22d3ee;
-  --background: #020617;
-  --surface: #0f172a;
-  --surface-brighter: #1e293b;
-  --text: #f8fafc;
+  /* Light Theme - Clean Medical SaaS */
+  --primary: #2563eb;
+  --primary-glow: rgba(37, 99, 235, 0.08);
+  --secondary: #0d9488;
+  --accent: #4f46e5;
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --surface-brighter: #f1f5f9;
+  --text: #0f172a;
+  --text-muted: #64748b;
+  --danger: #ef4444;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --border: rgba(15, 23, 42, 0.06);
+  --glass: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(15, 23, 42, 0.06);
+  --shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.01);
+}
+
+.theme-dark {
+  /* Dark Theme - High-Tech Clinical Console */
+  --primary: #3b82f6;
+  --primary-glow: rgba(59, 130, 246, 0.15);
+  --secondary: #06b6d4;
+  --accent: #6366f1;
+  --background: #090a0f;
+  --surface: #11131e;
+  --surface-brighter: #181a27;
+  --text: #f1f5f9;
   --text-muted: #94a3b8;
   --danger: #f43f5e;
   --success: #10b981;
   --warning: #f59e0b;
-  --glass: rgba(15, 23, 42, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --border: rgba(255, 255, 255, 0.06);
+  --glass: rgba(17, 19, 30, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 * {
@@ -31,6 +54,15 @@ body {
   color: var(--text);
   min-height: 100vh;
   overflow-x: hidden;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Elegant Theme transitions */
+body, div, header, main, section, button, h1, h2, h3, h4, p, span, table, th, td, input, a {
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              color 0.3s cubic-bezier(0.4, 0, 0.2, 1), 
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 h1, h2, h3, h4 {
@@ -38,64 +70,67 @@ h1, h2, h3, h4 {
   letter-spacing: -0.02em;
 }
 
-/* Glassmorphism Classes */
+/* Premium Medical Glassmorphism */
 .glass-panel {
   background: var(--glass);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
   border-radius: 16px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  box-shadow: var(--shadow);
 }
 
 .glow-card {
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glow-card:hover {
-  box-shadow: 0 0 20px var(--primary-glow);
+  box-shadow: 0 15px 35px -10px var(--primary-glow);
   border-color: var(--primary);
+  transform: translateY(-2px);
 }
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.6s ease forwards;
+  animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbars inside cards */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--surface-brighter);
+  background: var(--border);
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
+  background: var(--text-muted);
 }
 
-/* Medical Scanning & Polish Animations */
+/* High-Tech Medical Scan Lines */
 @keyframes scan-sweep {
   0% { transform: translateY(-100%); opacity: 0; }
-  50% { opacity: 0.5; }
-  100% { transform: translateY(400px); opacity: 0; }
+  30% { opacity: 0.8; }
+  70% { opacity: 0.8; }
+  100% { transform: translateY(380px); opacity: 0; }
 }
 
 @keyframes brain-pulse {
-  0% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.2); }
-  70% { box-shadow: 0 0 0 15px rgba(14, 165, 233, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); }
+  0% { box-shadow: 0 0 0 0 var(--primary-glow); }
+  70% { box-shadow: 0 0 0 12px rgba(37, 99, 235, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
 }
 
 @keyframes grid-glow {
@@ -108,11 +143,11 @@ h1, h2, h3, h4 {
   top: 0;
   left: 0;
   width: 100%;
-  height: 4px;
-  background: linear-gradient(to right, transparent, var(--primary), transparent);
-  box-shadow: 0 0 15px var(--primary);
+  height: 3px;
+  background: linear-gradient(to right, transparent, var(--secondary), transparent);
+  box-shadow: 0 0 12px var(--secondary);
   z-index: 10;
-  animation: scan-sweep 3s linear infinite;
+  animation: scan-sweep 2.5s linear infinite;
   pointer-events: none;
 }
 
@@ -121,8 +156,8 @@ h1, h2, h3, h4 {
 }
 
 .medical-grid {
-  background-image: linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
-  background-size: 20px 20px;
-  animation: grid-glow 4s ease-in-out infinite;
+  background-image: linear-gradient(rgba(37, 99, 235, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.02) 1px, transparent 1px);
+  background-size: 16px 16px;
+  animation: grid-glow 5s ease-in-out infinite;
 }
